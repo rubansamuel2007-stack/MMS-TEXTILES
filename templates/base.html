@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}MMS Textiles | Tradition Woven with Elegance{% endblock %}</title>
+<meta name="description" content="Discover sarees, clothing and textile collections at MMS Textiles, Alangulam. Trusted since 2009.">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head><body>
+<div class="top-strip">A trusted textile destination in Alangulam · Since 2009</div>
+<header class="site-header"><a class="brand" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" onerror="this.style.display='none'" alt="MMS Textiles logo"><span><b>MMS TEXTILES</b><small>Fashion for Every Generation</small></span></a>
+<button class="menu-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+<nav class="nav-links"><a href="{{ url_for('home') }}">Home</a><a href="{{ url_for('about') }}">About Us</a><a href="{{ url_for('products') }}">Collections</a><a href="{{ url_for('products', q='men') }}">Men's Wear</a><a href="{{ url_for('products', q='women') }}">Women's Wear</a><a href="{{ url_for('products', q='kids') }}">Kids' Wear</a><a href="{{ url_for('contact') }}">Contact Us</a></nav>
+<a class="button button-red header-wa" target="_blank" href="https://wa.me/{{ whatsapp }}?text=Hello%20MMS%20Textiles%2C%20I%20would%20like%20to%20know%20about%20your%20collections.">WhatsApp Us</a>
+</header>
+{% with messages = get_flashed_messages(with_categories=true) %}{% if messages %}<div class="flash-wrap">{% for category,message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}</div>{% endif %}{% endwith %}
+<main>{% block content %}{% endblock %}</main>
+<footer class="footer"><div class="footer-grid"><div><h2>MMS TEXTILES</h2><p>Since 2009, bringing tradition, quality and style together. Discover beautiful clothing for every occasion and every generation.</p></div><div><h3>Explore</h3><a href="{{ url_for('home') }}">Home</a><a href="{{ url_for('about') }}">About Us</a><a href="{{ url_for('products') }}">Collections</a><a href="{{ url_for('contact') }}">Contact</a></div><div><h3>Visit Us</h3><p>{{ address }}</p><p>Phone: {{ phone }}</p><a href="{{ map_url }}" target="_blank">Get Directions ↗</a><a href="{{ instagram_url }}" target="_blank">Instagram ↗</a></div></div><div class="copyright">Copyright © 2026 {{ shop_name }}. All rights reserved. <a href="{{ url_for('admin_login') }}"> Designed and Developed by <b>Ruban.S</b></a></div></footer>
+<a class="floating-wa" target="_blank" aria-label="Chat on WhatsApp" href="https://wa.me/{{ whatsapp }}?text=Hello%20MMS%20Textiles">✆</a>
+</body></html>
